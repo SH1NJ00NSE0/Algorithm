@@ -4,26 +4,10 @@
 int n, i, sum;
 int s[100];
 
-int checkLower(int p, int q) //분노유발자면 1
+int checkHeight(int p, int q) //분노유발자면 1
 {
-   if (p>n)
-   {
-      return 0;
-   }
-   if (q > n - 1)
-   {
-      sum++;
-      checkLower(p + 1, p + 2);
-   }
-   else if (s[p] < s[q])
-   {
-      checkLower(p + 1, p + 2);
-   }
-   else
-   {
-      return checkLower(p, q + 1);
-   }
-}
+   //만약 cH(p,q+1)을 하다가 나보다 키큰애가 한명이라도 있으면 cH(p+1,p+2)호출
+   //그러지 않고 q==n-1을 만족 할때 까지 위 조건을 안충족하면 분노유발자로 간주하고 sum++한 후, cH(p+1,p+2)
 
 int main()
 {
@@ -32,7 +16,7 @@ int main()
       scanf("%d", &s[i]);
    // for (i = 0; i < n; i++)
    //    sum += checkLower(i, i + 1);
-   checkLower(0,1);
+   checkHeight(0, 1);
    printf("%d", sum);
    // printf("%d", checkLower(0, 1));
    return 0;

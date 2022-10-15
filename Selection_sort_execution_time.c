@@ -1,27 +1,26 @@
 #include <stdio.h>
 int main()
 {
-	int i, j, n = 4, k, temp;			// 1
-	int list[4] = {4, 5, 1, 2};		// 1
+	int i, j, n = 4, k, temp;
+	int list[4] = {4, 5, 1, 2};
 
-	for (i = 0; i < n - 1; i++)		// n
+	for (i = 0; i < n - 1; i++)
 	{
-		k = i;								// n - 1
-		for (j = i + 1; j < n; j++)	// (2 + n)(n - 1) / 2
+		k = i;
+		for (j = i + 1; j < n; j++)
 		{
-			if (list[j] < list[k])		// n(n - 1) / 2
+			if (list[j] < list[k])
 			{
-				k = j;						// 3
+				k = j;
 			}
 		}
-		temp = list[i];					// n - 1
-		list[i] = list[k];				// n - 1
-		list[k] = temp;					// n - 1
+		temp = list[i];
+		list[i] = list[k];
+		list[k] = temp;
 	}
-	for (i = 0; i < n; i++)				// n + 1
+	for (i = 0; i < n; i++)
 	{
-		printf("%d ", list[i]);			// n
+		printf("%d ", list[i]);
 	}
-	return 0;								// 1
+	return 0;
 }
-//n^2+7n+2

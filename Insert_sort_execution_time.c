@@ -1,3 +1,4 @@
+//삽입정렬
 #include <stdio.h>
 int main()
 {
